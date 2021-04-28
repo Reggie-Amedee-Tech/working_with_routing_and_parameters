@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import {Router} from '@reach/router'
+import HomePage from './components/HomePage'
 import './App.css';
+import ShowNumber from './components/Number';
+import WordRepeater from './components/WordRepeater'
+
 
 function App() {
+
+  const idConverter = (id) => {
+    if(isNaN(id)) {
+      id = parseInt()
+    } 
+  }
+
+
+
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <HomePage path="/Home"/>
+        <ShowNumber path="Number/:id"/>
+        <WordRepeater path=":word/:font/:backgrnd"/>
+      </Router>
     </div>
   );
 }
